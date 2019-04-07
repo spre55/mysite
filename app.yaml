@@ -1,0 +1,13 @@
+runtime: go111
+
+handlers:
+- url: /api/v1/.*
+  script: auto
+
+- url: /(.*\.(gif|png|jpeg|jpg|css|js|ico|eot|svg|ttf|woff|woff2))$
+  static_files: front/dist/\1
+  upload: front/dist/(.*)
+
+- url: /.*
+  static_files: front/dist/index.html
+  upload: front/dist/index.html
